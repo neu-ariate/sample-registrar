@@ -20,7 +20,7 @@ MongoClient.connect(url)
     db = client.db(dbName);
     console.log(`Connected: ${dbName}`); //connected to database
 
-    return db.listCollections({ name: collectionName }).toArray();
+    return db.listCollections({ name: collectionName }).toArray(); // wala lang
   })
   .then(collections => {
     if (collections.length > 0) {
@@ -31,7 +31,7 @@ MongoClient.connect(url)
     return db.createCollection(collectionName);
   })
   .then(result => {
-    if (result) {
+    if (result) {gi
       console.log(`Collection ${collectionName} created`);
     }
 
