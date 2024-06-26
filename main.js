@@ -18,7 +18,7 @@ let db;
 MongoClient.connect(url)
   .then(client => {
     db = client.db(dbName);
-    console.log(`Connected to database: ${dbName}`);
+    console.log(`Connected: ${dbName}`); //connected to database
 
     return db.listCollections({ name: collectionName }).toArray();
   })
@@ -58,7 +58,7 @@ app.get('/data', async (req, res) => {
   try {
     const collection = db.collection(collectionName);
     const data = await collection.find({}).toArray();
-    res.json({ message: 'You are connected', data });
+    res.json({ message: 'Connected', data }); // tin orig: you are connected
   } catch (err) {
     console.error(err);
     res.status(500).send(err.message);
